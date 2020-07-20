@@ -4,7 +4,7 @@ namespace MeysamZnd\HostiranSmsProvider\Tests;
 
 use MeysamZnd\HostiranSmsProvider\Facades\HostiranSmsProvider;
 use MeysamZnd\HostiranSmsProvider\ServiceProvider;
-use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class HostiranSmsProviderTest extends TestCase
 {
