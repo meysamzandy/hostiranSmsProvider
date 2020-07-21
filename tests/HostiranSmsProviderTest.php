@@ -10,7 +10,6 @@ use Mockery;
 
 class HostiranSmsProviderTest extends \PHPUnit\Framework\TestCase
 {
-
     protected function getPackageProviders($app)
     {
         return [ServiceProvider::class];
@@ -22,7 +21,6 @@ class HostiranSmsProviderTest extends \PHPUnit\Framework\TestCase
             'hostiran-sms-provider' => HostiranSmsProvider::class,
         ];
     }
-
 
     public function testSendToOne()
     {
@@ -67,7 +65,6 @@ class HostiranSmsProviderTest extends \PHPUnit\Framework\TestCase
         self::assertFalse($sender1['status']);
         self::assertIsNotArray($sender1['providerResult']);
         Mockery::close();
-
 
         $mock2 = Mockery::mock('overload:'.ToOne::class, ['send' => [
             'status' => true,
