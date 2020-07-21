@@ -4,7 +4,7 @@
 [![styleci](https://styleci.io/repos/281369503/shield)](https://styleci.io/repos/281369503)
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/meysamzandy/hostiranSmsProvider/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meysamzandy/hostiranSmsProvider/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meysamzandy/hostiranSmsProvider/?branch=master)
-
+[![Build Status](https://scrutinizer-ci.com/g/meysamzandy/hostiranSmsProvider/badges/build.png?b=master)](https://scrutinizer-ci.com/g/meysamzandy/hostiranSmsProvider/build-status/master)
 
 [![Packagist](https://img.shields.io/packagist/php-v/meysam-znd/hostiran-sms-provider.svg)](https://packagist.org/packages/meysam-znd/hostiran-sms-provider)
 [![Packagist](https://img.shields.io/packagist/v/meysam-znd/hostiran-sms-provider.svg)](https://packagist.org/packages/meysam-znd/hostiran-sms-provider)
