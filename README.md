@@ -1,7 +1,8 @@
 # Hostiran Sms Provider
 
 [![GitHub Workflow Status](https://github.com/meysamzandy/hostiranSmsProvider/workflows/Run%20tests/badge.svg)](https://github.com/meysamzandy/hostiranSmsProvider/actions)
-[![styleci](https://styleci.io/repos/281369503?branch=master/shield)](https://styleci.io/repos/281369503?branch=master)
+[![styleci](https://styleci.io/repos/281369503/shield)](https://styleci.io/repos/281369503)
+
 
 [![Packagist](https://img.shields.io/packagist/v/meysam-znd/hostiran-sms-provider.svg)](https://packagist.org/packages/meysam-znd/hostiran-sms-provider)
 [![Packagist](https://poser.pugx.org/meysam-znd/hostiran-sms-provider/d/total.svg)](https://packagist.org/packages/meysam-znd/hostiran-sms-provider)
