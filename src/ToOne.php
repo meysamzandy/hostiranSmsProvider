@@ -3,6 +3,7 @@
 namespace MeysamZnd\HostiranSmsProvider;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use MeysamZnd\HostiranSmsProvider\Interfaces\Sms;
 
 class ToOne implements Sms
@@ -15,6 +16,7 @@ class ToOne implements Sms
      * @param string $url
      * @param array $data
      * @return array
+     * @throws GuzzleException
      */
     public function send(string $url, array $data): array
     {

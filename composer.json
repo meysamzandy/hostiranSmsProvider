@@ -32,7 +32,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "MeysamZnd\\HostiranSmsProvider\\Tests\\": "tests"
+      "MeysamZnd\\HostiranSmsProvider\\Tests\\": "tests/"
     },
     "classmap": [
       "tests"
