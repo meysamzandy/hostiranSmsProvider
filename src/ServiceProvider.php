@@ -2,6 +2,8 @@
 
 namespace MeysamZnd\HostiranSmsProvider;
 
+use MeysamZnd\HostiranSmsProvider\Interfaces\Sms;
+
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     const CONFIG_PATH = __DIR__.'/../config/hostiran-sms-provider.php';
