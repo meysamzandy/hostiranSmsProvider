@@ -1,6 +1,5 @@
 <?php
 
-
 namespace MeysamZnd\HostiranSmsProvider;
 
 use GuzzleHttp\Client;
@@ -8,7 +7,6 @@ use MeysamZnd\HostiranSmsProvider\Interfaces\Sms;
 
 class ToOne implements Sms
 {
-
     public function __construct()
     {
     }
@@ -28,6 +26,7 @@ class ToOne implements Sms
                 'providerResult' => $e->getMessage(),
             ];
         }
+
         return $response;
     }
 }

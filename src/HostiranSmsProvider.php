@@ -2,7 +2,6 @@
 
 namespace MeysamZnd\HostiranSmsProvider;
 
-
 use MeysamZnd\HostiranSmsProvider\Interfaces\Sms;
 
 class HostiranSmsProvider
@@ -18,6 +17,4 @@ class HostiranSmsProvider
     {
         return $this->send->send($url, $data);
     }
-
-
 }
