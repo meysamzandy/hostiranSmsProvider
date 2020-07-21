@@ -26,8 +26,55 @@ php artisan vendor:publish --provider="MeysamZnd\HostiranSmsProvider\ServiceProv
 
 ## Usage
 
-as soon as possible
+### Send sms to one number or few numbers
+##### for sending sms to few numbers, separate those numbers with ", " as a string.
 
+```bash
+use MeysamZnd\HostiranSmsProvider\HostiranSmsProvider;
+use MeysamZnd\HostiranSmsProvider\ToOne;
+
+$url = 'https://rest.payamak-panel.com/api/SendSMS/SendSMS';
+$data = [
+    'username' => 'your username',
+    'password' => 'your password',
+    'from' => 'sender number',
+    'to' => 'receiver numbers',
+    'text' => 'your text message',
+    'isflash' => false,
+    ];
+
+    $sender = new HostiranSmsProvider(new ToOne()) ;
+
+    // send and get the result
+    dd ( $sender->send($url, $data) );
+
+```
+### Send sms to one, or  many numbers with schedule
+##### for sending sms to few numbers, separate those numbers with ", " as a string.
+
+```bash
+use MeysamZnd\HostiranSmsProvider\HostiranSmsProvider;
+use MeysamZnd\HostiranSmsProvider\ToMany;
+use MeysamZnd\HostiranSmsProvider\ToOne;
+
+$url = 'http://api.payamak-panel.com/post/schedule.asmx?wsdl';
+$data = [
+    'username' => 'your username',
+    'password' => 'your password',
+    'from' => 'sender number',
+    'to' => 'receiver numbers',
+    'text' => 'your text message',
+    'isflash' => false,
+    'scheduleDateTime' => 'your time',
+    'period' => 'Once',
+    ];
+
+    $sender = new HostiranSmsProvider(new ToMany()) ;
+
+    // send and get the result
+    dd ( $sender->send($url, $data) );
+
+```
 ## Security
 
 If you discover any security related issues, please email
@@ -35,7 +82,7 @@ instead of using the issue tracker.
 
 ## Credits
 
-- [](https://github.com/meysam-znd/hostiran-sms-provider)
+- [Meysam Zandy](https://github.com/meysam-znd/hostiran-sms-provider)
 - [All contributors](https://github.com/meysam-znd/hostiran-sms-provider/graphs/contributors)
 
 This package is bootstrapped with the help of
