@@ -10,13 +10,14 @@
   "type": "library",
   "authors": [
     {
-      "name": "",
-      "email": ""
+      "name": "meysam zandy",
+      "email": "zandy.meysam@gmail.com"
     }
   ],
   "require": {
     "php": ">=7.2",
-    "illuminate/support": "^6.0|^7.0"
+    "illuminate/support": "^6.0|^7.0",
+    "ext-soap": "*"
   },
   "require-dev": {
     "orchestra/testbench": "^4.0|^5.0",
