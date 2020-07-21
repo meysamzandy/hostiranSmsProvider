@@ -33,7 +33,10 @@
   "autoload-dev": {
     "psr-4": {
       "MeysamZnd\\HostiranSmsProvider\\Tests\\": "tests"
-    }
+    },
+    "classmap": [
+      "tests"
+    ]
   },
   "scripts": {
     "phpunit": "phpunit"
