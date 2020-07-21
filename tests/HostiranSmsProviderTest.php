@@ -4,7 +4,11 @@ namespace MeysamZnd\HostiranSmsProvider\Tests;
 
 use MeysamZnd\HostiranSmsProvider\Facades\HostiranSmsProvider;
 use MeysamZnd\HostiranSmsProvider\ServiceProvider;
-use PHPUnit\Framework\TestCase;
+use MeysamZnd\HostiranSmsProvider\ToMany;
+use MeysamZnd\HostiranSmsProvider\ToOne;
+use Mockery;
+use Tests\TestCase;
+
 
 class HostiranSmsProviderTest extends TestCase
 {
@@ -20,8 +24,129 @@ class HostiranSmsProviderTest extends TestCase
         ];
     }
 
-    public function testExample()
+    public function testSendToOne()
     {
-        $this->assertEquals(1, 1);
+
+        $mock = Mockery::mock('overload:' . ToOne::class, ['send' => [
+            'status' => true,
+            'providerResult' => [
+                'Value' => '5120060601178765588',
+                'RetStatus' => 1,
+                'StrRetStatus' => "Ok",
+            ],
+        ]])->makePartial();
+        self::assertInstanceOf(ToOne::class, $mock);
+        $url = 'https://rest.payamak-panel.com/api/SendSMS/SendSMS';
+        $data = [
+            'username' => 'fake',
+            'password' => 'fake',
+            'from' => 'fake',
+            'to' => 'fake',
+            'text' => 'ToOne',
+            'isflash' => false,
+        ];
+        $sender = new ToOne();
+        $result = $sender->send($url, $data);
+        self::assertTrue($result['status']);
+        self::assertArrayHasKey('Value', $result['providerResult']);
+        self::assertEquals(1, $result['providerResult']['RetStatus']);
+        self::assertEquals("Ok", $result['providerResult']['StrRetStatus']);
+        self::assertIsArray($result['providerResult']);
+
+        $this->tearDown();
+
+
+        $mock1 = Mockery::mock('overload:' . ToOne::class, ['send' => [
+            'status' => false,
+            'providerResult' => 'fake message',
+        ]])->makePartial();
+        self::assertInstanceOf(ToOne::class, $mock1);
+        //         false if variable has doesnt value
+        $sender =  new ToOne();
+        $result1 = $sender->send('', []);
+        self::assertFalse($result1['status']);
+        self::assertIsNotArray($result1['providerResult']);
+
+        $this->tearDown();
+
+        $mock2 = Mockery::mock('overload:' . ToOne::class, ['send' => [
+            'status' => true,
+            'providerResult' => [
+                'Value' => "5",
+                'RetStatus' => 9,
+                'StrRetStatus' => "fake message",
+            ],
+        ]])->makePartial();
+        self::assertInstanceOf(ToOne::class, $mock2);
+        $url = 'https://rest.payamak-panel.com/api/SendSMS/SendSMS';
+        $data = ['wrong data'];
+        $sender = new ToOne();
+        $result = $sender->send($url, $data);
+        self::assertTrue($result['status']);
+        self::assertArrayHasKey('Value', $result['providerResult']);
+        self::assertNotEquals(1, $result['providerResult']['RetStatus']);
+        self::assertNotEquals("Ok", $result['providerResult']['StrRetStatus']);
+        self::assertIsArray($result['providerResult']);
+    }
+
+    public function testSendToMany()
+    {
+
+        $mock = Mockery::mock('overload:' . ToMany::class, ['send' => [
+            'status' => true,
+            'providerResult' => [
+                'AddScheduleResult' => '2336716',
+            ],
+        ]])->makePartial();
+        self::assertInstanceOf(ToMany::class, $mock);
+        $url = 'https://rest.payamak-panel.com/api/SendSMS/SendSMS';
+        $data = [
+            'username' => 'fake',
+            'password' => 'fake',
+            'from' => 'fake',
+            'to' => 'fake',
+            'text' => 'ToOne',
+            'isflash' => false,
+        ];
+        $sender = new ToMany();
+        $result = $sender->send($url, $data);
+        self::assertTrue($result['status']);
+        self::assertIsArray($result['providerResult']);
+        self::assertArrayHasKey('AddScheduleResult', $result['providerResult']);
+        self::assertGreaterThan(2, strlen($result['providerResult']['AddScheduleResult']));
+
+        $this->tearDown();
+
+
+        $mock1 = Mockery::mock('overload:' . ToMany::class, ['send' => [
+            'status' => false,
+            'providerResult' => 'fake message',
+        ]])->makePartial();
+        self::assertInstanceOf(ToMany::class, $mock1);
+        //         false if variable has doesnt value
+        $sender =  new ToMany();
+        $result1 = $sender->send('', []);
+        self::assertFalse($result1['status']);
+        self::assertIsNotArray($result1['providerResult']);
+
+        $this->tearDown();
+
+        $mock2 = Mockery::mock('overload:' . ToMany::class, ['send' => [
+            'status' => true,
+            'providerResult' => [
+                'AddScheduleResult' => '0',
+            ],
+        ]])->makePartial();
+        self::assertInstanceOf(ToMany::class, $mock2);
+        $url = 'https://rest.payamak-panel.com/api/SendSMS/SendSMS';
+        $data = ['wrong data'];
+        $sender = new ToMany();
+        $result = $sender->send($url, $data);
+        self::assertTrue($result['status']);
+        self::assertIsArray($result['providerResult']);
+        self::assertArrayHasKey('AddScheduleResult', $result['providerResult']);
+        self::assertLessThan(5, strlen($result['providerResult']['AddScheduleResult']));
+
+
     }
 }
