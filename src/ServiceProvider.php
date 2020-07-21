@@ -23,7 +23,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         );
 
         $this->app->bind('hostiran-sms-provider', function () {
-            return new HostiranSmsProvider();
+            return new HostiranSmsProvider(new ToOne());
         });
     }
 }
