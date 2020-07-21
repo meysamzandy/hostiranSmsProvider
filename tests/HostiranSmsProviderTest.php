@@ -9,7 +9,6 @@ use MeysamZnd\HostiranSmsProvider\ToOne;
 use Mockery;
 use Tests\TestCase;
 
-
 class HostiranSmsProviderTest extends TestCase
 {
     protected function getPackageProviders($app)
@@ -26,13 +25,12 @@ class HostiranSmsProviderTest extends TestCase
 
     public function testSendToOne()
     {
-
-        $mock = Mockery::mock('overload:' . ToOne::class, ['send' => [
+        $mock = Mockery::mock('overload:'.ToOne::class, ['send' => [
             'status' => true,
             'providerResult' => [
                 'Value' => '5120060601178765588',
                 'RetStatus' => 1,
-                'StrRetStatus' => "Ok",
+                'StrRetStatus' => 'Ok',
             ],
         ]])->makePartial();
         self::assertInstanceOf(ToOne::class, $mock);
@@ -50,31 +48,30 @@ class HostiranSmsProviderTest extends TestCase
         self::assertTrue($result['status']);
         self::assertArrayHasKey('Value', $result['providerResult']);
         self::assertEquals(1, $result['providerResult']['RetStatus']);
-        self::assertEquals("Ok", $result['providerResult']['StrRetStatus']);
+        self::assertEquals('Ok', $result['providerResult']['StrRetStatus']);
         self::assertIsArray($result['providerResult']);
 
         $this->tearDown();
 
-
-        $mock1 = Mockery::mock('overload:' . ToOne::class, ['send' => [
+        $mock1 = Mockery::mock('overload:'.ToOne::class, ['send' => [
             'status' => false,
             'providerResult' => 'fake message',
         ]])->makePartial();
         self::assertInstanceOf(ToOne::class, $mock1);
         //         false if variable has doesnt value
-        $sender =  new ToOne();
+        $sender = new ToOne();
         $result1 = $sender->send('', []);
         self::assertFalse($result1['status']);
         self::assertIsNotArray($result1['providerResult']);
 
         $this->tearDown();
 
-        $mock2 = Mockery::mock('overload:' . ToOne::class, ['send' => [
+        $mock2 = Mockery::mock('overload:'.ToOne::class, ['send' => [
             'status' => true,
             'providerResult' => [
-                'Value' => "5",
+                'Value' => '5',
                 'RetStatus' => 9,
-                'StrRetStatus' => "fake message",
+                'StrRetStatus' => 'fake message',
             ],
         ]])->makePartial();
         self::assertInstanceOf(ToOne::class, $mock2);
@@ -85,14 +82,13 @@ class HostiranSmsProviderTest extends TestCase
         self::assertTrue($result['status']);
         self::assertArrayHasKey('Value', $result['providerResult']);
         self::assertNotEquals(1, $result['providerResult']['RetStatus']);
-        self::assertNotEquals("Ok", $result['providerResult']['StrRetStatus']);
+        self::assertNotEquals('Ok', $result['providerResult']['StrRetStatus']);
         self::assertIsArray($result['providerResult']);
     }
 
     public function testSendToMany()
     {
-
-        $mock = Mockery::mock('overload:' . ToMany::class, ['send' => [
+        $mock = Mockery::mock('overload:'.ToMany::class, ['send' => [
             'status' => true,
             'providerResult' => [
                 'AddScheduleResult' => '2336716',
@@ -117,21 +113,20 @@ class HostiranSmsProviderTest extends TestCase
 
         $this->tearDown();
 
-
-        $mock1 = Mockery::mock('overload:' . ToMany::class, ['send' => [
+        $mock1 = Mockery::mock('overload:'.ToMany::class, ['send' => [
             'status' => false,
             'providerResult' => 'fake message',
         ]])->makePartial();
         self::assertInstanceOf(ToMany::class, $mock1);
         //         false if variable has doesnt value
-        $sender =  new ToMany();
+        $sender = new ToMany();
         $result1 = $sender->send('', []);
         self::assertFalse($result1['status']);
         self::assertIsNotArray($result1['providerResult']);
 
         $this->tearDown();
 
-        $mock2 = Mockery::mock('overload:' . ToMany::class, ['send' => [
+        $mock2 = Mockery::mock('overload:'.ToMany::class, ['send' => [
             'status' => true,
             'providerResult' => [
                 'AddScheduleResult' => '0',
@@ -146,7 +141,5 @@ class HostiranSmsProviderTest extends TestCase
         self::assertIsArray($result['providerResult']);
         self::assertArrayHasKey('AddScheduleResult', $result['providerResult']);
         self::assertLessThan(5, strlen($result['providerResult']['AddScheduleResult']));
-
-
     }
 }
