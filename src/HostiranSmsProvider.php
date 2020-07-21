@@ -12,7 +12,7 @@ class HostiranSmsProvider
      * HostiranSmsProvider constructor.
      * @param Sms $send
      */
-    public function __construct(Sms $send)
+    public function __construct(Sms $send = null)
     {
         $this->send = $send;
     }
