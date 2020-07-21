@@ -85,5 +85,3 @@ instead of using the issue tracker.
 - [Meysam Zandy](https://github.com/meysam-znd/hostiran-sms-provider)
 - [All contributors](https://github.com/meysam-znd/hostiran-sms-provider/graphs/contributors)
 
-This package is bootstrapped with the help of
-[melihovv/laravel-package-generator](https://github.com/melihovv/laravel-package-generator).
