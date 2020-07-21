@@ -6,6 +6,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/meysamzandy/hostiranSmsProvider/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/meysamzandy/hostiranSmsProvider/?branch=master)
 
 
+[![Packagist](https://img.shields.io/packagist/php-v/meysam-znd/hostiran-sms-provider.svg)](https://packagist.org/packages/meysam-znd/hostiran-sms-provider)
 [![Packagist](https://img.shields.io/packagist/v/meysam-znd/hostiran-sms-provider.svg)](https://packagist.org/packages/meysam-znd/hostiran-sms-provider)
 [![Packagist](https://poser.pugx.org/meysam-znd/hostiran-sms-provider/d/total.svg)](https://packagist.org/packages/meysam-znd/hostiran-sms-provider)
 [![Packagist](https://img.shields.io/packagist/l/meysam-znd/hostiran-sms-provider.svg)](https://packagist.org/packages/meysam-znd/hostiran-sms-provider)
