@@ -11,6 +11,11 @@ class ToMany implements Sms
     {
     }
 
+    /**
+     * @param string $url
+     * @param array $data
+     * @return array
+     */
     public function send(string $url, array $data): array
     {
         ini_set('soap.wsdl_cache_enabled', '0');
