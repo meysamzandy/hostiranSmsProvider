@@ -1,24 +1,19 @@
 <?php
 
-
 namespace MeysamZnd\HostiranSmsProvider;
-
 
 use MeysamZnd\HostiranSmsProvider\Interfaces\Sms;
 use SoapClient;
 
 class ToMany implements Sms
 {
-
     public function __construct()
     {
     }
 
-
     public function send(string $url, array $data): array
     {
-
-        ini_set("soap.wsdl_cache_enabled", "0");
+        ini_set('soap.wsdl_cache_enabled', '0');
         try {
             $client = new SoapClient($url, ['encoding' => 'UTF-8']);
             $response = [
