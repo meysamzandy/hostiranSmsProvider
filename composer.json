@@ -16,6 +16,7 @@
   ],
   "require": {
     "php": ">=7.2",
+    "laravel/framework": "7.20.*",
     "illuminate/support": "^6.0|^7.0",
     "ext-soap": "*"
   },
