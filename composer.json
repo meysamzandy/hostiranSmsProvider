@@ -16,9 +16,9 @@
   ],
   "require": {
     "php": ">=7.2",
-    "laravel/framework": "7.20.*",
+    "laravel/framework": ">=7.2",
     "illuminate/support": "^6.0|^7.0",
-    "guzzlehttp/guzzle": "7.0.*",
+    "guzzlehttp/guzzle": ">=5.5",
     "ext-soap": "*"
   },
   "require-dev": {
