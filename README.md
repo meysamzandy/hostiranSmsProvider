@@ -84,6 +84,6 @@ instead of using the issue tracker.
 
 ## Credits
 
-- [Meysam Zandy](https://github.com/meysam-znd/hostiran-sms-provider)
-- [All contributors](https://github.com/meysam-znd/hostiran-sms-provider/graphs/contributors)
+- [Meysam Zandy](https://github.com/meysamzandy/hostiranSmsProvider)
+- [All contributors](https://github.com/meysamzandy/hostiranSmsProvider/graphs/contributors)
 
